@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { app } from "./state";
-import Editor from "./lib/editor/Editor.vue";
+import { App } from "./App";
+import Editor from "../editor/Editor.vue";
+
+const { app } = defineProps<{ app: App }>()
 </script>
 
 <template>
