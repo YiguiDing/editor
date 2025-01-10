@@ -3,12 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "main.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite & nw .",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/nw.js": "^0.92.0",
+    "less": "^4.2.1",
     "vue": "^3.3.11"
   },
   "devDependencies": {

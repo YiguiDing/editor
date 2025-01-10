@@ -1,1 +1,1 @@
-nw.Window.open("index.html", {}, function (win) {});
+nw.Window.open("http://localhost:5173/", {}, function (win) {});
