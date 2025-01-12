@@ -5,9 +5,6 @@ const { editor } = defineProps<{ editor: Editor }>();
 
 <template>
   <div class="editor">
-    <input v-model="editor.wdith" />
-    <input v-model="editor.height" />
-    <input v-model="editor.backgroundColor" />
     <div class="content">
       <component
         v-for="item in editor.content"
@@ -24,7 +21,8 @@ const { editor } = defineProps<{ editor: Editor }>();
   height: v-bind("editor.height");
   background-color: v-bind("editor.backgroundColor");
   .content {
-    line-height: 20px;
+    width: 100%;
+    height: fit-content;
   }
 }
 </style>
