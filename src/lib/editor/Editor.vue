@@ -8,7 +8,13 @@ const { editor } = defineProps<{ editor: Editor }>();
     <input v-model="editor.wdith" />
     <input v-model="editor.height" />
     <input v-model="editor.backgroundColor" />
-    <div class="content">{{ editor.content }}</div>
+    <div class="content">
+      <component
+        v-for="item in editor.content"
+        :is="item.component()"
+        v-bind="item.props()"
+      />
+    </div>
   </div>
 </template>
 
