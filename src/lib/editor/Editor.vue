@@ -6,23 +6,23 @@ const { editor } = defineProps<{ editor: Editor }>();
 <template>
   <div class="editor">
     <div class="content">
-      <component
-        v-for="item in editor.content"
-        :is="item.component()"
-        v-bind="item.props()"
-      />
+      <component v-for="node in editor.content" :is="node.render()" />
     </div>
   </div>
 </template>
 
 <style lang="less">
 .editor {
-  width: v-bind("editor.wdith");
-  height: v-bind("editor.height");
-  background-color: v-bind("editor.backgroundColor");
+  width: 100%;
+  height: 100%;
+  // background-color: v-bind("editor.backgroundColor");
   .content {
-    width: 100%;
-    height: fit-content;
+    width: 800px;
+    height: 100%;
+    max-width: 100%;
+    min-height: fit-content;
+    margin: 0 auto;
+    background-color: rgb(255, 249, 231);
   }
 }
 </style>

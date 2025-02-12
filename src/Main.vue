@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import App from "./lib/app/App.vue";
-import { app } from "./state";
+import { Editor } from "./lib/editor/Editor";
+const editor = new Editor();
 </script>
 
 <template>
-  <App :app="app" />
+  <component :is="editor.render()" />
 </template>
