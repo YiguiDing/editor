@@ -1,23 +1,26 @@
 <script setup lang="ts">
-import { Editor } from "./Editor";
-const { editor } = defineProps<{ editor: Editor }>();
+import { Editor } from ".";
+const { self } = defineProps<{ self: Editor }>();
 </script>
 
 <template>
   <div class="editor">
     <div class="content">
-      <component v-for="node in editor.content" :is="node.render()" />
+      <component v-for="child in self.childs" :is="child.render()" />
     </div>
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 .editor {
   width: 100%;
   height: 100%;
-  // background-color: v-bind("editor.backgroundColor");
+  width: v-bind("self.wdith");
+  height: v-bind("self.height");
+  background-color: v-bind("self.backgroundColor");
   .content {
     width: 800px;
+    width: 100%;
     height: 100%;
     max-width: 100%;
     min-height: fit-content;

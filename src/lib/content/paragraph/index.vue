@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Paragraph } from "./Paragraph";
-const { paragraph } = defineProps<{ paragraph: Paragraph }>();
+import type { Paragraph } from ".";
+const { self } = defineProps<{ self: Paragraph }>();
 </script>
 
 <template>
   <div class="paragraph">
-    <component v-for="node in paragraph.content" :is="node.render()" />
+    <component v-for="node in self.childs" :is="node.render()" />
   </div>
 </template>
 

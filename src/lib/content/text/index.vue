@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Text } from "./Text";
-const { text } = defineProps<{ text: Text }>();
+import { Text } from "./index";
+const { self } = defineProps<{ self: Text }>();
 </script>
 
 <template>
   <div class="text" contenteditable @change="(v) => console.log(v)">
-    {{ text.content }}
+    {{ self.content }}
   </div>
 </template>
 
@@ -13,6 +13,6 @@ const { text } = defineProps<{ text: Text }>();
 .text {
   width: fit-content;
   height: fit-content;
-  color: red;
+  // color: red;
 }
 </style>

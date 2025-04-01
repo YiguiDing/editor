@@ -1,5 +1,5 @@
 import { h, reactive } from "vue";
-import TextView from "./Text.vue";
+import View from "./index.vue";
 
 export class Text {
   wdith = "200px";
@@ -8,13 +8,9 @@ export class Text {
   content = "hello-world";
 
   constructor() {
-    return reactive(this).init();
+    return reactive(this);
   }
-  init() {
-    return this;
-  }
-  destory() {}
   render() {
-    return h(TextView, { text: this });
+    return h(View, { self: this });
   }
 }
