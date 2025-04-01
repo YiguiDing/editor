@@ -5,40 +5,43 @@ const { self } = defineProps<{ self: DragScaleContainer }>();
 </script>
 
 <template>
-  <div class="parent" @mouseup="self.onMouseStop($event)">
+  <div class="wrapper" @mouseup="self.onDragParnetStop($event)">
+    {{ self }}
     <div
-      class="child"
+      class="parent"
       @wheel="self.onWheel($event)"
-      @mousedown="self.onMouseStart($event)"
-      @mousemove="self.onMouseMove($event)"
+      @mousedown="self.onDragParnetStart($event)"
+      @mousemove="self.onDragParnetMove($event)"
+      @mouseup="self.onDragChildStop($event)"
     >
       <component
-        class="item"
+        class="child"
         v-for="child in self.childs"
         :is="child.render()"
+        @mouseenter="self.onMouseEnterChild($event)"
+        @mouseleave="self.onMouseLeaveChild($event)"
+        @mousedown="self.onDragChildStart($event)"
+        @mousemove="self.onDragChildMove($event)"
       />
     </div>
   </div>
 </template>
 
 <style scoped lang="less">
-.parent {
+.wrapper {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
-  background-color: pink;
-  .child {
+  .parent {
     position: absolute;
     width: v-bind("self.width");
     height: v-bind("self.height");
     transform-origin: 0 0;
     transform: v-bind("self.transform");
-    border: 0.1px solid black;
   }
-  .item {
+  .child {
     position: absolute;
-    background: #ff7675;
   }
 }
 </style>
